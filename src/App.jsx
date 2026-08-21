@@ -6,11 +6,13 @@ import './App.css'
 import { Route,Routes } from 'react-router-dom'
 import AuthProvider from './context/AuthContext'
 import ProductDetails from './pages/productDetails'
+import CartProvider from './context/CartContext'
 
 function App() {
 
   return (
     <AuthProvider>
+      <CartProvider>
     <div className='app'>
       <Navbar/>
       <Routes>
@@ -18,9 +20,9 @@ function App() {
         <Route path="/auth" element={<Auth/>}/>
         <Route path="/checkout" element={<CheckOut/>}/>
         <Route path="/products/:id" element={<ProductDetails/>}/>
-
       </Routes>
     </div>
+      </CartProvider>
     </AuthProvider>
   )
 }
